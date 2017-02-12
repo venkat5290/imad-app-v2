@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var content= {
+var articleOne= {
     title : 'Article-one | venky',
     Heading : 'Article-one',
     Date : '2nd feb 2016',
@@ -26,13 +26,47 @@ var content= {
             </p> `
 };
 
+function createTemplate(data)
+{
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    
+var htmlTemplate=`<html>
+<head>
+    <title>
+        ${title}
+    </title>
+   <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+<body>
+   <div class="container">
+    <div>
+        <a href="/" >Home</a>
+        <hr/>
+    </div>
+        <h1>${heading}</h1>
+        <div>
+            ${date}
+        </div>
+        <div>
+            ${content}
+        </div>
+    </div>
+</body>
+</html>
+`;
+return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 
 app.get('/page-one',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'page-one.html'));
+    res.send(createTemplate(articleOne));
 });
 app.get('/page-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'page-two.html'));
