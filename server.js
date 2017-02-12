@@ -4,10 +4,9 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-
-var articleOne= {
-    title : 'Article-one | venky',
+var articles={
+  'page-one': {
+     title : 'Article-one | venky',
     heading : 'Article-one',
     date : '2nd feb 2016',
     content : `<p>this is my first article page.this is my first article page.this is my first article pagethis is my first article page
@@ -24,8 +23,21 @@ var articleOne= {
             first article page.this is my first article pagethis is my first article page this is my first article pagethis is my fir
             article pagethis is my first article page
             </p> `
-};
+},
+ 'page-two':{
+      title : 'Article-one | venky',
+    heading : 'Article-two',
+    date : '2nd feb 2016',
+    content : '<p>this is second content page</p>'
+ },
+ 'page-three':{
+     title : 'Article-three | venky',
+    heading : 'Article-three',
+    date : '2nd feb 2016',
+    content : '<p>this is third content page</p>'
+}
 
+};
 function createTemplate(data)
 {
     var title=data.title;
@@ -65,8 +77,13 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/page-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:pagename',function(req,res){
+    
+    
+    //functionality provided by express framework
+    
+    var articleName=req.params.pagename;
+    res.send(createTemplate(articles[articleName]);
 });
 app.get('/page-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'page-two.html'));
