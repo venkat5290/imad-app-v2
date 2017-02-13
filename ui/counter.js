@@ -7,7 +7,7 @@ button.onclick=function()
     //response code
     reqob.onreadystatechange=function()
     {
-        if(reqob.readyState===XMLHTTPRequest.DONE)
+        if(reqob.readyState===XMLHttpRequest.DONE)
         {
             if(reqob.status===200)
             {
