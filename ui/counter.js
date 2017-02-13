@@ -20,6 +20,6 @@ button.onclick=function()
         
     }
     
-    reqob.open('GET','http://http://venkat5290.imad.hasura-app.io/counter','true');
+    reqob.open('GET','http://venkat5290.imad.hasura-app.io/counter','true');
     reqob.send(null);
 };
