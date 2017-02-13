@@ -2,7 +2,7 @@ var button=document.getElementById("counter");
 button.onclick=function()
 {
     //creating reuest object
-    var reqob=new XMLHTTPRequest();
+    var reqob=new XMLHttpRequest();
     
     //response code
     reqob.onreadystatechange=function()
