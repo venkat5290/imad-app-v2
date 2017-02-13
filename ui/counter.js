@@ -4,5 +4,5 @@ button.onclick=functio()
 {
     counter=counter+1;
     var span=document.getElementById("count");
-    span.innerHTML=counter;
+    span.innerHTML=counter.toString();
 }
