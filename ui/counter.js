@@ -1,4 +1,4 @@
-var button=document.getElementById("counter");
+/*var button=document.getElementById("counter");
 button.onclick=function()
 {
     //creating reuest object
@@ -23,6 +23,7 @@ button.onclick=function()
     reqob.open('GET','http://venkat5290.imad.hasura-app.io/counter','true');
     reqob.send(null);
 };
+*/
 
 var input=document.getElementById("input_box");
 var txtbox=input.value;
