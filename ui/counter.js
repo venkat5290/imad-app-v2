@@ -43,10 +43,15 @@ submit.onclick=function()
         {
             if(reqob.status===200)
             {
-                var counter=reqob.responseText;
-                var span=document.getElementById("count");
-                span.innerHTML=counter.toString();
-                
+               var names=reqob.reponseText;
+               names=JSON.parse(names);
+               var list='';
+               for(var i=0;i<names.length;i++)
+               {
+                   list+='<li>'+names[i]+'</li>';
+               }
+               var lis=document.getElementById("names_list");
+               lis.innerHTML=list;
             }
         }
         
