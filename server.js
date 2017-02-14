@@ -111,13 +111,24 @@ app.get('/ui/counter.js', function (req, res) {
 });
 
 var namearray=[];
+
+//1st method by using : for sending data to server
+/*
 app.get('/ui/submit-name/:name',function(req,res)
 {
    var send_name=req.params.name;
    namearray.push(send_name);
    res.send(JSON.stringify(namearray));
 });
+  */
+//2nd method..query parameter for sending data
 
+app.get('/ui/submit-name',function(req,res)
+{
+   var send_name=req.query.name;
+   namearray.push(send_name);
+   res.send(JSON.stringify(namearray));
+});
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
