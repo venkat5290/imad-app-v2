@@ -43,8 +43,8 @@ submit.onclick=function()
         {
             if(reqob.status===200)
             {
-               var response_string=reqob.reponseText;
-               names=JSON.parse(response_string);
+               //var response_string=reqob.reponseText;
+               names=JSON.parse(this.responseText);
                var list='';
                for(var i=0;i<names.length;i++)
                {
