@@ -110,6 +110,14 @@ app.get('/ui/counter.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'counter.js'));
 });
 
+var namearray=[];
+app.get('/ui/sub,it-name:name',function(req,res)
+{
+   var send_name=re.params.name;
+   namearray.push(send_name);
+   res.send(JSON.stringify(namearray));
+});
+
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
