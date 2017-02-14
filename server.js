@@ -114,7 +114,7 @@ var namearray=[];
 
 //1st method by using : for sending data to server
 /*
-app.get('/ui/submit-name/:name',function(req,res)
+app.get('/submit-name/:name',function(req,res)
 {
    var send_name=req.params.name;
    namearray.push(send_name);
@@ -123,7 +123,7 @@ app.get('/ui/submit-name/:name',function(req,res)
   */
 //2nd method..query parameter for sending data
 
-app.get('/ui/submit-name',function(req,res)
+app.get('/submit-name',function(req,res)
 {
    var send_name=req.query.name;
    namearray.push(send_name);
