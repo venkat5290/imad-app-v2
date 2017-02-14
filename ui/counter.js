@@ -35,6 +35,7 @@ for(var i=0;i<names.length;i++)
 {
     list+='<li>'+names[i]+'</li>';
 }
-submit.innerHtml=list;
+var ul=document.getElementById("list");
+ul.innerHtml=list;
 };
 
