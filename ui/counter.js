@@ -50,7 +50,7 @@ submit.onclick=function()
                {
                    list+='<li>'+names[i]+'</li>';
                }
-               var lis=document.getElementById("names_list");
+               var lis=document.getElementById("name_list");
                lis.innerHTML=list;
             }
         }
