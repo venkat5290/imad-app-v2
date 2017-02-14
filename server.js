@@ -82,7 +82,13 @@ app.get('/counter',function(req,res)
     counter=counter+1;
     res.send(counter.toString());
 });
-
+var namearray=[];
+app.get('/submit-name',function(req,res)
+{
+   var send_name=req.query.name;
+   namearray.push(send_name);
+   res.send(JSON.stringify(namearray));
+});
 
 app.get('/:pagename',function(req,res){
     
@@ -110,7 +116,6 @@ app.get('/ui/counter.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'counter.js'));
 });
 
-var namearray=[];
 
 //1st method by using : for sending data to server
 /*
@@ -123,12 +128,7 @@ app.get('/submit-name/:name',function(req,res)
   */
 //2nd method..query parameter for sending data
 
-app.get('/submit-name',function(req,res)
-{
-   var send_name=req.query.name;
-   namearray.push(send_name);
-   res.send(JSON.stringify(namearray));
-});
+
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
