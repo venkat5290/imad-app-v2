@@ -111,7 +111,7 @@ app.get('/ui/counter.js', function (req, res) {
 });
 
 var namearray=[];
-app.get('/ui/sub,it-name:name',function(req,res)
+app.get('/ui/submit-name:name',function(req,res)
 {
    var send_name=re.params.name;
    namearray.push(send_name);
