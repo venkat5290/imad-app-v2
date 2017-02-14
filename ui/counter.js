@@ -44,7 +44,7 @@ submit.onclick=function()
             if(reqob.status===200)
             {
                var response_string=reqob.reponseText;
-               names=JSON.parse(resonse_string);
+               names=JSON.parse(response_string);
                var list='';
                for(var i=0;i<names.length;i++)
                {
