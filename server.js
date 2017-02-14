@@ -118,6 +118,7 @@ app.get('/ui/counter.js', function (req, res) {
 
 
 //1st method by using : for sending data to server
+var namearray=[];
 app.get('/submit-name/:name',function(req,res)
 {
    var send_name=req.params.name;
