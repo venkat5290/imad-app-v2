@@ -26,7 +26,7 @@ button.onclick=function()
 
 var input=document.getElementById("input_box");
 var txtbox=input.value;
-var submit=document.getElemetById("submit_b");
+var submit=document.getElementById("submit_b");
 submit.onclick=function()
 {
 var names=['name1','name2','name3'];
