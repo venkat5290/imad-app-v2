@@ -4,7 +4,7 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articles={
+/*var articles={
   'page-one': {
      title : 'Article-one | venky',
     heading : 'Article-one',
@@ -37,7 +37,7 @@ var articles={
     content : '<p>this is third content page</p>'
 }
 
-};
+};  */
 function createTemplate(data)
 {
     var title=data.title;
