@@ -95,7 +95,7 @@ app.get('/articledemo',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
 });
 
-app.get('/ui/commentr.js', function (req, res) {
+app.get('/ui/comment.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
 });
 
