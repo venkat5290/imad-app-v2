@@ -127,7 +127,14 @@ app.get('/submit-name/:name',function(req,res)
 });
  
 //2nd method..query parameter for sending data
-
+ var comment=[];
+ app.get('/ui/articledemo',function(req,res)
+ {
+     var c=document.getElementById("comment-box");
+     com=c.value;
+     comment.push(com);
+     res.send(JSON.stringify(comment));
+ });
 
 
 app.get('/ui/madi.png', function (req, res) {
