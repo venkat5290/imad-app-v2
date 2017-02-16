@@ -91,9 +91,8 @@ app.get('/submit-name',function(req,res)
 });
 
 
-app.get('/articledemo',function(req,res)
-{
-   res.sendFile(path.join(_dirname,'ui','articledemo.html')); 
+app.get('/articledemo',function(req,res){
+    res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
 });
 
 var comments=[];
