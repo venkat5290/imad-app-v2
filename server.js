@@ -72,6 +72,25 @@ var htmlTemplate=`<html>
 return htmlTemplate;
 }
 
+
+app.get('/articledemo',function(req,res){
+    res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
+});
+
+app.get('/ui/comment.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
+});
+
+var result=[];
+app.get('/add-comment',function(req,res)
+{
+   var received=req.query.comment;
+   result.push(received);
+   res.send(JSON.stringify(result));
+});
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -91,21 +110,6 @@ app.get('/submit-name',function(req,res)
 });
 
 
-app.get('/articledemo',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
-});
-
-app.get('/ui/comment.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
-});
-
-var result=[];
-app.get('/add-comment',function(req,res)
-{
-   var received=req.query.comment;
-   result.push(received);
-   res.send(JSON.stringify(result));
-});
 
 /*app.get('/:pagename',function(req,res){
     
