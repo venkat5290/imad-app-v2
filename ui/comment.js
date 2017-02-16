@@ -2,7 +2,7 @@ var submit=document.getElementById("submit-btn");
 submit.onclick=function()
 {
     var req=new XMLHttpRequest();
-    req.onreaystatechange=function()
+    req.onreadystatechange=function()
     {
          if(req.readyState===req.XMLHttpRequest.DONE)
          {
