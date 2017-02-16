@@ -89,7 +89,7 @@ app.get('/submit-name',function(req,res)
    namearray.push(send_name);
    res.send(JSON.stringify(namearray));
 });
-var comments[];
+var comments=[];
 app.get('/add-comment/:send-comment',function(req,res)
 {
    var received=req.params.send-comment;
