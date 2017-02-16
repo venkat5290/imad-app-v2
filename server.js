@@ -95,6 +95,9 @@ app.get('/articledemo',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
 });
 
+app.get('/ui/commentr.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
+});
 var comments=[];
 app.get('/add-comment/:sc',function(req,res)
 {
