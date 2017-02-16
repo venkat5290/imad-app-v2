@@ -89,6 +89,8 @@ app.get('/submit-name',function(req,res)
    namearray.push(send_name);
    res.send(JSON.stringify(namearray));
 });
+
+
 app.get('/articledemo.html',function(req,res)
 {
    res.sendFile(path.join(_dirname,'ui','articledemo.html')); 
