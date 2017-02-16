@@ -99,12 +99,12 @@ app.get('/ui/comment.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
 });
 
-var comments=[];
-app.get('/add-comment/:sc',function(req,res)
+var resullt=[];
+app.get('/add-comment/:comment',function(req,res)
 {
-   var received=req.params.sc;
-   comments.push(received);
-   res.send(JSON.stringify(comments));
+   var received=req.params.comment;
+   result.push(received);
+   res.send(JSON.stringify(result));
 });
 
 /*app.get('/:pagename',function(req,res){
