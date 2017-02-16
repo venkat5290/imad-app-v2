@@ -89,6 +89,13 @@ app.get('/submit-name',function(req,res)
    namearray.push(send_name);
    res.send(JSON.stringify(namearray));
 });
+var comments[];
+app.get('/add-comment/:send-comment',function(req,res)
+{
+   var received-comment=req.params.send-comment;
+   comments.push(received-comment);
+   res.send(JSON.stringify(comments));
+});
 
 app.get('/:pagename',function(req,res){
     
@@ -127,15 +134,6 @@ app.get('/submit-name/:name',function(req,res)
 });
  
 //2nd method..query parameter for sending data
- var comment=[];
- app.get('/ui/articledemo',function(req,res)
- {
-     var c=document.getElementById("comment-box");
-     com=c.value;
-     comment.push(com);
-     res.send(JSON.stringify(comment));
- });
-
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
