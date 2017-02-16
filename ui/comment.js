@@ -12,7 +12,7 @@ submit.onclick=function()
                   var list='';
                for(var i=0;i<comment.length;i++)
                {
-                   list+='<li>'+comment[i]+'</li>';
+                   list+='<div>'+'<li>'+comment[i]+'</li>'+'/div';
                }
                var lis=document.getElementById("comment");
                lis.innerHTML=list;
