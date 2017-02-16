@@ -92,8 +92,8 @@ app.get('/submit-name',function(req,res)
 var comments[];
 app.get('/add-comment/:send-comment',function(req,res)
 {
-   var received-comment=req.params.send-comment;
-   comments.push(received-comment);
+   var received=req.params.send-comment;
+   comments.push(received);
    res.send(JSON.stringify(comments));
 });
 
