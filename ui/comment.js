@@ -20,7 +20,7 @@ submit.onclick=function()
          }
     }
     var input=document.getElementById("comment-box");
-    var comment=input.value;
-    req.open('GET','http://venkat5290.imad.hasura-app.io/add-comment/:comment','true');
+    var name=input.value;
+    req.open('GET','http://venkat5290.imad.hasura-app.io/add-comment?comment='+name,'true');
     req.send(null);
 }
