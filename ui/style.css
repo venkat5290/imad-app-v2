@@ -27,3 +27,10 @@ body {
     padding-left: 20px;
     padding-right: 8px;
            }
+.list{
+    list-style-type:none;
+    color:red;
+    padding-top:10px;
+    padding-left:20px;
+    
+}
