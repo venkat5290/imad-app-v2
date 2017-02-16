@@ -96,9 +96,9 @@ app.get('/articledemo',function(req,res){
 });
 
 var comments=[];
-app.get('/add-comment/:send-comment',function(req,res)
+app.get('/add-comment/:sc',function(req,res)
 {
-   var received=req.params.send-comment;
+   var received=req.params.sc;
    comments.push(received);
    res.send(JSON.stringify(comments));
 });
