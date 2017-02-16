@@ -100,9 +100,9 @@ app.get('/ui/comment.js', function (req, res) {
 });
 
 var result=[];
-app.get('/add-comment/:comment',function(req,res)
+app.get('/add-comment',function(req,res)
 {
-   var received=req.params.comment;
+   var received=req.query.comment;
    result.push(received);
    res.send(JSON.stringify(result));
 });
