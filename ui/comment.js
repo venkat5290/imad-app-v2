@@ -21,6 +21,6 @@ submit.onclick=function()
     }
     var input=document.getElementById("comment-box");
     var comment=input.value;
-    reqob.open('GET','http://venkat5290.imad.hasura-app.io/add-comment/:comment','true');
-    reqob.send(null);
+    req.open('GET','http://venkat5290.imad.hasura-app.io/add-comment/:comment','true');
+    req.send(null);
 }
