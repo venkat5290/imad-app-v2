@@ -27,7 +27,7 @@ body {
     padding-left: 20px;
     padding-right: 8px;
            }
-.list{
+.list ul li{
     list-style-type:none;
     color:red;
     padding-top:10px;
