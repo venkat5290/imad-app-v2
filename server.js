@@ -99,7 +99,7 @@ app.get('/ui/comment.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'comment.js'));
 });
 
-var resullt=[];
+var result=[];
 app.get('/add-comment/:comment',function(req,res)
 {
    var received=req.params.comment;
