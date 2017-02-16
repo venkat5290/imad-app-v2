@@ -104,14 +104,14 @@ app.get('/add-comment/:send-comment',function(req,res)
    res.send(JSON.stringify(comments));
 });
 
-app.get('/:pagename',function(req,res){
+/*app.get('/:pagename',function(req,res){
     
     
     //functionality provided by express framework
     
     var articleName=req.params.pagename;
     res.send(createTemplate(articles[articleName]));
-});
+});*/
 app.get('/page-two',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'page-two.html'));
 });
