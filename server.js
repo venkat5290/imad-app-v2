@@ -11,7 +11,7 @@ var config={
                 port:'5432',
                 password:process.env.DB_PASSWORD
             };
-var pool=new Pool(config);
+var pool=new Pool(config)
 app.get('/test',function(req,res)
 {
     
