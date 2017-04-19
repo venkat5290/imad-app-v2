@@ -66,7 +66,7 @@ app.get('/test-db',function(req,res)
     });
 });       
 app.get('/articles/:articleName',function(req,res){
-    pool.query("select * from articles where title= +aticleName",function(err,result){
+    pool.query("select * from articles where title= '"+articleName +'"',function(err,result){
         if(err)
         {
             res.status(500).send(err.toString());
