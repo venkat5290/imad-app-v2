@@ -40,7 +40,6 @@ var htmlTemplate=`<html>
         <div>
             ${date.toDateString()}
         </div>
-        <br/>
         <div>
             ${content}
         </div>
