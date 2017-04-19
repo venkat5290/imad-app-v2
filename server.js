@@ -16,7 +16,7 @@ var config={
 var pool=new Pool(config);
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyParser,json());
+app.use(bodyParser.json());
 //This is templating data
 function createTemplate(data)
 {
