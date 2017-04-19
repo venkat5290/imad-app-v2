@@ -13,6 +13,10 @@ var config={
             
 var pool=new Pool(config);
 console.log(pool);
+
+var app = express();
+app.use(morgan('combined'));
+
 app.get('/test-db',function(req,res)
 {
     //console.log("inside test db");
@@ -30,8 +34,6 @@ app.get('/test-db',function(req,res)
 });                    
 
 
-var app = express();
-app.use(morgan('combined'));
 /*var articles={
   'page-one': {
      title : 'Article-one | venky',
