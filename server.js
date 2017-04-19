@@ -15,41 +15,7 @@ var pool=new Pool(config);
 var app = express();
 app.use(morgan('combined'));
 
-
-/*var articles={
-  'page-one': {
-     title : 'Article-one | venky',
-    heading : 'Article-one',
-    date : '2nd feb 2016',
-    content : `<p>this is my first article page.this is my first article page.this is my first article pagethis is my first article page
-            this is my first article pagethis is my first article pagethis is my first article pagethis is my first article page.this is my first article page.this is my first article pagethis is my first article page
-            this is my first article pagethis is my first article pagethis is my first article page
-            </p>
-            <p>this is my first article page.this is my first article page.this is my first article pagethis is my first article page
-            this is my first article pagethis is my first article pagethis is my first article pagethis is my first article page.this is
-            first article page.this is my first article pagethis is my first article page this is my first article pagethis is my firs
-            article pagethis is my first article page
-            </p>
-            <p>this is my first article page.this is my first article page.this is my first article pagethis is my first article page
-            this is my first article pagethis is my first article pagethis is my first article pagethis is my first article page.this is my
-            first article page.this is my first article pagethis is my first article page this is my first article pagethis is my fir
-            article pagethis is my first article page
-            </p> `
-},
- 'page-two':{
-      title : 'Article-one | venky',
-    heading : 'Article-two',
-    date : '2nd feb 2016',
-    content : '<p>this is second content page</p>'
- },
- 'page-three':{
-     title : 'Article-three | venky',
-    heading : 'Article-three',
-    date : '2nd feb 2016',
-    content : '<p>this is third content page</p>'
-}
-
-};  */
+//This is templating data
 function createTemplate(data)
 {
     var title=data.title;
@@ -99,8 +65,26 @@ app.get('/test-db',function(req,res)
         }
     });
 });       
-app.get('/articledemo',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
+app.get('/articles/:articleName',function(req,res){
+    pool.query("select * from articles where title= +aticleName",function(err,result){
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length===0)
+            {
+                res.status(404).send('Article Not Found');
+            }
+            else
+            {
+                var articledata=result.rows[0];
+                res.send(createTemplate(result));
+            }
+        }
+    });
+    
 });
 
 app.get('/ui/comment.js', function (req, res) {
