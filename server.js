@@ -12,8 +12,6 @@ var config={
             };
             
 var pool=new Pool(config);
-console.log(pool.host);
-
 var app = express();
 app.use(morgan('combined'));
 
