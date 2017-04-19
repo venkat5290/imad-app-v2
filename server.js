@@ -74,7 +74,7 @@ app.post('/create-user',function(req,res)
    
 });
 
-app.get('/test-db',function(req,res)
+/*app.get('/test-db',function(req,res)
 {
     //console.log("inside test db");
     pool.query('select * from test',function(err,result)
@@ -88,7 +88,8 @@ app.get('/test-db',function(req,res)
             res.send(JSON.stringify(result.rows));
         }
     });
-});       
+});       */
+
 app.get('/articles/:articleName',function(req,res){
     pool.query("select * from articles where title=$1",[req.params.articleName],function(err,result){
         if(err)
