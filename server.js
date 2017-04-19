@@ -80,7 +80,7 @@ app.get('/articles/:articleName',function(req,res){
             else
             {
                 var articledata=result.rows[0];
-                res.send(createTemplate(result));
+                res.send(createTemplate(articledata));
             }
         }
     });
