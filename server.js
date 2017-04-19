@@ -149,6 +149,34 @@ app.post('/create-user',function(req,res)
    
 });
 
+
+app.post('/login',function(req,res)
+{
+    var username=req.body.username;
+    var password=req.body.password;
+    pool.query('select * from "users" username=$1',[username],fun(err,result)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length===0)
+            {
+                res.status(404).send('Article Not Found');
+            }
+            else
+            {
+                var articledata=result.rows[0];
+                res.send(createTemplate(articledata));
+            }
+         }
+        
+    });
+});
+
+
 function hash(input,salt)
 {
    var hashed=crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512');
