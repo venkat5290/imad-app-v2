@@ -120,7 +120,7 @@ app.get('/submit-name',function(req,res)
    res.send(JSON.stringify(namearray));
 });
 
-app.get('/hash/input',function(req,res)
+app.get('/hash/:input',function(req,res)
 {
     var hashedInput=hash(req.params.input,'this is salt value');
     res.send(hashedInput);
