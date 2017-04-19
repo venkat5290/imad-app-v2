@@ -52,27 +52,6 @@ var htmlTemplate=`<html>
 return htmlTemplate;
 }
 
-app.post('/create-user',function(req,res)
-{
-   var username=req.body.username;
-   var password=req.body.password;
-   
-   var salt=crypto.randomBytes(128).toString('hex');
-   var dbpass=hash(password,salt);
-   pool.query('insert into "users"(username,password) values($1,$2)',[username,dbpass],function(err,result){
-       
-       if(err)
-        {
-            res.status(500).send(err.toString());
-        }
-        else
-        {
-            res.send("user successfully created"+username);
-        }
-       
-   });
-   
-});
 
 /*app.get('/test-db',function(req,res)
 {
@@ -150,6 +129,27 @@ app.get('/hash/:input',function(req,res)
     res.send(hashedInput);
 });
 
+app.post('/create-user',function(req,res)
+{
+   var username=req.body.username;
+   var password=req.body.password;
+   
+   var salt=crypto.randomBytes(128).toString('hex');
+   var dbpass=hash(password,salt);
+   pool.query('insert into "users"(username,password) values($1,$2)',[username,dbpass],function(err,result){
+       
+       if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send("user successfully created"+username);
+        }
+       
+   });
+   
+});
 
 
 
@@ -172,6 +172,16 @@ app.post('/login',function(req,res)
             else
             {
                 var dbstring=result.rows[0].password;
+                var salt=password.split('$')[2];
+                var hp=hash(password,salt);
+                if(dbstring===hp)
+                {
+                    res.send("credentias are correct");
+                }
+                else
+                {
+                    res.send("wrong credentials")
+                }
             }
         }
         
