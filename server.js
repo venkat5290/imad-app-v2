@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
+var crypto=require('crypto');
 
 var config={
                 host:'db.imad.hasura-app.io',
@@ -119,22 +120,17 @@ app.get('/submit-name',function(req,res)
    res.send(JSON.stringify(namearray));
 });
 
-
-
-/*app.get('/:pagename',function(req,res){
-    
-    
-    //functionality provided by express framework
-    
-    var articleName=req.params.pagename;
-    res.send(createTemplate(articles[articleName]));
-});*/
-app.get('/page-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'page-two.html'));
+app.get('/hash/input',function(req,res)
+{
+    var hashedInput=hash(req.params.input,'this is salt value');
+    res.send(hashedInput);
 });
-app.get('/page-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'page-three.html'));
-});
+
+function hash(input,salt)
+{
+   var hashed=crypto.pbkdf2Sync(input, 'salt', 100000, 512, 'sha512');
+   return hashed.toString('hex')
+}
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
