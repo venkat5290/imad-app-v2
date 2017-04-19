@@ -9,7 +9,7 @@ var config={
                 database:'venkat5290',
                 host:'db.imad.hasura-app.io',
                 port:'5432',
-                password:process.env.DB_PASSWORD
+                password:'db-venkat5290-10695'
             };
 var pool=new Pool(config)
 app.get('/test',function(req,res)
