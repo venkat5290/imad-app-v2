@@ -17,22 +17,6 @@ console.log(pool);
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/test-db',function(req,res)
-{
-    //console.log("inside test db");
-    pool.query('select * from test',function(err,result)
-    {
-        if(err)
-        {
-            res.status(500).send(err.toString());
-        }
-        else
-        {
-            res.send(JSON.stringify(result));
-        }
-    });
-});                    
-
 
 /*var articles={
   'page-one': {
@@ -102,7 +86,21 @@ var htmlTemplate=`<html>
 return htmlTemplate;
 }
 
-
+app.get('/test-db',function(req,res)
+{
+    //console.log("inside test db");
+    pool.query('select * from test',function(err,result)
+    {
+        if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send(JSON.stringify(result));
+        }
+    });
+});       
 app.get('/articledemo',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'articledemo.html'));
 });
