@@ -8,7 +8,6 @@ var config={
                 user:'venkat5290',
                 database:'venkat5290',
                 host:'db.imad.hasura-app.io',
-                port:'5432',
                 password:'db-venkat5290-10695'
             };
 var pool=new Pool(config);
