@@ -36,7 +36,7 @@ var htmlTemplate=`<html>
         <a href="/" >Home</a>
         <hr/>
     </div>
-        <h1>${heading}</h1>
+        <h1><center>${heading}</center></h1>
         <div>
             ${date.toDateString()}
         </div>
