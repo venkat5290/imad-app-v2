@@ -12,7 +12,7 @@ var config={
                 password:'db-venkat5290-10695'
             };
 var pool=new Pool(config)
-app.get('/test',function(req,res)
+app.get('/test-db',function(req,res)
 {
     
     pool.query('select * from test',function(err,result)
