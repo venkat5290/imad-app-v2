@@ -157,7 +157,7 @@ app.post('/login',function(req,res)
 {
     var username=req.body.username;
     var password=req.body.password;
-    pool.query('select * from "users" where username=$1',[username],function(err,result){
+    pool.query('select * from "users"  username=$1',[username],function(err,result){
         
         if(err)
         {
@@ -167,12 +167,12 @@ app.post('/login',function(req,res)
         {
             if(result.rows.length===0)
             {
-                res.status(404).send('Article Not Found');
+                res.status(404).send('No such username is found');
             }
             else
             {
                 var dbstring=result.rows[0].password;
-                var salt=password.split('$')[2];
+                var salt=dbstring.split('$')[2];
                 var hp=hash(password,salt);
                 if(dbstring===hp)
                 {
