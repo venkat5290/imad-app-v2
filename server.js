@@ -154,8 +154,8 @@ app.post('/login',function(req,res)
 {
     var username=req.body.username;
     var password=req.body.password;
-    pool.query('select * from "users" username=$1',[username],fun(err,result)
-    {
+    pool.query('select * from "users" where username=$1',[username],function(err,result){
+        
         if(err)
         {
             res.status(500).send(err.toString());
@@ -168,10 +168,10 @@ app.post('/login',function(req,res)
             }
             else
             {
-                var articledata=result.rows[0];
-                res.send(createTemplate(articledata));
+                var dbstring=result.rows[0].password;
             }
-         }
+        }
+        
         
     });
 });
@@ -180,7 +180,7 @@ app.post('/login',function(req,res)
 function hash(input,salt)
 {
    var hashed=crypto.pbkdf2Sync(input, salt, 100000, 512, 'sha512');
-   return hashed.toString('hex')
+   return [pbdk2,"1000",salt,hashed.toString('hex')]
 }
 
 app.get('/ui/style.css', function (req, res) {
