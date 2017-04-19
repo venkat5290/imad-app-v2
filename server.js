@@ -174,7 +174,7 @@ app.post('/login',function(req,res)
                 var dbstring=result.rows[0].password;
                 var salt=dbstring.split('$')[2];
                 var hp=hash(password,salt);
-                if(dbstring===hp)
+                if(hp === dbstring)
                 {
                     res.send("credentias are correct");
                 }
