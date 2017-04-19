@@ -5,10 +5,10 @@ var path = require('path');
 var Pool=require('pg').Pool;
 
 var config={
-                user:'venkat5290',
-                database:'venkat5290',
                 host:'db.imad.hasura-app.io',
-                password:'db-venkat5290-10695'
+                user:'venkat5290',
+                password:'db-venkat5290-10695',
+                database:'venkat5290',
             };
 var pool=new Pool(config);
 app.get('/test-db',function(req,res)
