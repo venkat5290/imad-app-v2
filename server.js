@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
+var bodyParser=require('body-parser');
 
 var config={
                 host:'db.imad.hasura-app.io',
@@ -15,7 +16,7 @@ var config={
 var pool=new Pool(config);
 var app = express();
 app.use(morgan('combined'));
-
+app.use(bodyParser,json());
 //This is templating data
 function createTemplate(data)
 {
@@ -124,6 +125,28 @@ app.get('/hash/:input',function(req,res)
 {
     var hashedInput=hash(req.params.input,'this is salt value');
     res.send(hashedInput);
+});
+
+app.post('/create-user',function(req,res)
+{
+   var username=req.body.username;
+   var password=req.body.password;
+   
+   var salt=crypto.randomBytes(128).toString('hex');
+   var dbpass=hash(password,salt);
+   pool.query('insert into "users"(username,password) values($1,$2)',[username,dbpass],function(err,result){
+       
+       if(err)
+        {
+            res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send("user successfully created"+username);
+        }
+       
+   });
+   
 });
 
 function hash(input,salt)
