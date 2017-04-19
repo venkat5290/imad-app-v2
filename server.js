@@ -87,7 +87,7 @@ return htmlTemplate;
 app.get('/test-db',function(req,res)
 {
     //console.log("inside test db");
-    pool.query('select * from test1',function(err,result)
+    pool.query('select * from test',function(err,result)
     {
         if(err)
         {
@@ -95,7 +95,7 @@ app.get('/test-db',function(req,res)
         }
         else
         {
-            res.send(JSON.stringify(result));
+            res.send(JSON.stringify(result.rows));
         }
     });
 });       
