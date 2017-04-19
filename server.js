@@ -13,7 +13,7 @@ var config={
 var pool=new Pool(config);
 app.get('/test-db',function(req,res)
 {
-    
+    console.log("inside test db");
     pool.query('select * from test',function(err,result)
     {
         if(err)
