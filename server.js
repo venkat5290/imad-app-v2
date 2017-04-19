@@ -12,7 +12,7 @@ var config={
                 password:process.env.DB_PASSWORD
             };
 var pool=new Pool(config);
-app.get('/test',function(req,res)
+/*app.get('/test',function(req,res)
 {
     
     pool.query('select * from test',function(err,result)
@@ -27,7 +27,7 @@ app.get('/test',function(req,res)
         }
     });
 });                    
-
+*/
 
 var app = express();
 app.use(morgan('combined'));
