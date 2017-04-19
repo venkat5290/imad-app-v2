@@ -1,20 +1,21 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
 var Pool=require('pg').Pool;
 
 var config={
                 host:'db.imad.hasura-app.io',
-                port:5432,
+                port:'5432',
                 user:'venkat5290',
                 password:'db-venkat5290-10695',
                 database:'venkat5290',
             };
+            
 var pool=new Pool(config);
+console.log(pool);
 app.get('/test-db',function(req,res)
 {
-    console.log("inside test db");
+    //console.log("inside test db");
     pool.query('select * from test',function(err,result)
     {
         if(err)
